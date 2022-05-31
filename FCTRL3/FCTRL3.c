@@ -32,12 +32,6 @@ int main(){
         printf("%d %d\n",rezultat[j][j], rezultat[j][j+1]);
     }
 
-    //  TESTY   !!!
-    //wynik = 24/10;
-    //printf("%d", wynik);
-    // printf("%d", rezultat[0][0]);
-    //printf("%d", ilosc);
-    //  TESTY   !!!
     return 0;
 }
 
