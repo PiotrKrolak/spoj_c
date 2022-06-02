@@ -18,6 +18,7 @@ int main(){
     int wyniki[10];
 
     int potenga(int podstawa, int wykladnik);
+    int potenga_reku(int podstawa_reku, int wykladnik_reku);
 
     scanf("%d", &ilosc);
     for(int i=0; i<ilosc; i++){
@@ -31,14 +32,28 @@ int main(){
         printf("%d\n", wyniki[j]);
     }
 
+    //printf("%d", potenga_reku(4,3));
     return 0;
 }
 
 
 int potenga(int podstawa, int wykladnik){
-    int wynik=podstawa;
+    int potegowanie=podstawa;
     for(int i=0; i<(wykladnik-1); i++){
-        wynik *= podstawa;
-        return wynik;
+        potegowanie *= podstawa;
+        
     }
+    return potegowanie;
+}
+
+// potegowanie metoda rekurencji - DO ZDEBUGOWANIA PO URUCHOMIENIU DEBUGERA na VS Code
+int potenga_reku(int podstawa_reku, int wykladnik_reku){
+    int potegowanie_reku = podstawa_reku;
+    if(wykladnik_reku) return potegowanie_reku;
+    else{
+        potegowanie_reku = podstawa_reku * potenga_reku(potegowanie_reku, wykladnik_reku-1);
+        return potegowanie_reku; 
+        
+    }
+
 }
