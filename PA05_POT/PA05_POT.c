@@ -14,18 +14,31 @@
 
 int main(){
 
-    int ilosc, a, b, wynik;
+    int ilosc, a, b, wynik; 
+    int wyniki[10];
+
+    int potenga(int podstawa, int wykladnik);
 
     scanf("%d", &ilosc);
     for(int i=0; i<ilosc; i++){
-        scanf("%d", &a);
-        scanf("%d", &b);
-        for(int j=0; j<b; j++){
-            a=a*a;
-        }
-        //wynik = a%10;
-        printf(" %d", a);
+        scanf("%d %d", &a, &b);
+        
+        wynik = potenga(a,b);
+        wynik %= 10;
+        wyniki[i] = wynik;
+    }
+    for(int j=0; j<ilosc; j++){
+        printf("%d\n", wyniki[j]);
     }
 
     return 0;
+}
+
+
+int potenga(int podstawa, int wykladnik){
+    int wynik=podstawa;
+    for(int i=0; i<(wykladnik-1); i++){
+        wynik *= podstawa;
+        return wynik;
+    }
 }
