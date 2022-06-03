@@ -51,10 +51,12 @@ int zliczanie_liter(char ciag_znakow[]){
     return ile;
 }
 
-char nowe_slowo(int dlugosc_slowa, char slowo_kasi){
+// do tworzenia nowego slowa wykorzystac funkcje strcpy() lub strcat() zeby doklejac kolejne znaki - do sprawdzenia !
+char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
     char nowe_slowo[200];
     char litera;
     int liczba = 0;
+    int ktory_znak =0;
 
     for(int i=0; i<dlugosc_slowa; i++){
 
@@ -63,6 +65,9 @@ char nowe_slowo(int dlugosc_slowa, char slowo_kasi){
         if(i < dlugosc_slowa){
             if(slowo_kasi[i] == slowo_kasi[i+1]){
                 liczba++;
+                if((slowo_kasi[i] != slowo_kasi[i-1]) && (i >= 0)){
+                    ktory_znak = i;
+                }
 
             }
             else{
