@@ -11,23 +11,67 @@
 
 
 #include <stdio.h>
+#include <string.h>
 
-int C, ilość;
+int C, ilosc;
 char slowo[200];
 char wynik[50][200];
+
+int zliczanie_liter(char ciag_znakow[]);
+char nowe_slowo(int dlugosc_slowa, char slowo_kasi);
 
 int main(){
     scanf("%d",&C);
     for(int i=0; i<C; i++){
 
         scanf("%s", &slowo);
+        // ilosc = zliczanie_liter(slowo);
 
+        // for(int k=0; k<ilosc; k++){
 
+        // }
+
+        // testy
         printf("%s", slowo);
+        printf("%d", ilosc);
 
     }
     for(int j=0; j<C; j++){
-        printf("%s", wynik[j][j]);
+        //printf("%s", wynik[j][j]);
     }
+
     return 0;
+}
+
+
+int zliczanie_liter(char ciag_znakow[]){
+    int ile = strlen(ciag_znakow);
+
+    //printf("%d", ile);
+    return ile;
+}
+
+char nowe_slowo(int dlugosc_slowa, char slowo_kasi){
+    char nowe_slowo[200];
+    char litera;
+    int liczba = 0;
+
+    for(int i=0; i<dlugosc_slowa; i++){
+
+        litera = slowo_kasi[i];
+        
+        if(i < dlugosc_slowa){
+            if(slowo_kasi[i] == slowo_kasi[i+1]){
+                liczba++;
+
+            }
+            else{
+
+            } 
+        } 
+        
+
+    }
+
+    return nowe_slowo;
 }
