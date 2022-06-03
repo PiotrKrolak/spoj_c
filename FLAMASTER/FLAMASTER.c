@@ -14,6 +14,7 @@
 
 int C, ilość;
 char slowo[200];
+char wynik[50][200];
 
 int main(){
     scanf("%d",&C);
@@ -21,6 +22,12 @@ int main(){
 
         scanf("%s", &slowo);
 
+
+        printf("%s", slowo);
+
+    }
+    for(int j=0; j<C; j++){
+        printf("%s", wynik[j][j]);
     }
     return 0;
 }
