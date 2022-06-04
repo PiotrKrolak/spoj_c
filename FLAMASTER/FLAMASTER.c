@@ -57,29 +57,37 @@ char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
     char litera;
     int liczba = 0;
     int ktory_znak =0;
+    int wspolrzedne[200][200]; //  1 wymiar - ktory_znak, 2 wymiar - liczba
+    int j=0;
 
     for(int i=0; i<dlugosc_slowa; i++){
 
         litera = slowo_kasi[i];
         
-        if((i < dlugosc_slowa) && (i>=0)){
-            //if((slowo_kasi[i] == slowo_kasi[i+1]) && ((slowo_kasi[i] != slowo_kasi[i-1]) && ((i-1) >= 0))){
-            if(slowo_kasi[i] == slowo_kasi[i+1]){
-                //ktory_znak = i;
-                liczba++;
-                if((slowo_kasi[i] != slowo_kasi[i-1]) && ((i-1) >= 0)){
-                    ktory_znak = i;
-                }
+        
+        //if((slowo_kasi[i] == slowo_kasi[i+1]) && ((slowo_kasi[i] != slowo_kasi[i-1]) && ((i-1) >= 0))){
+        if(slowo_kasi[i] == slowo_kasi[i+1]){
+                
+            if(!ktory_znak){
+                ktory_znak = i;
             }
-            else{
-                if((liczba) && (ktory_znak)){
-                    nowe_slowo[ktory_znak] = liczba;
-                    
-                    liczba = 0;
-                    ktory_znak = 0;
-                }
 
-            } 
+            for(i; i<dlugosc_slowa;i++){
+               if(slowo_kasi[i] == slowo_kasi[i+1]){
+                       liczba++;
+               } 
+                else{
+                   wspolrzedne[j][j] = ktory_znak;
+                   wspolrzedne[j][j+1] = liczba;
+
+                   ktory_znak = 0;
+                   liczba=0; 
+
+                   j++;
+               }
+                }
+            //tworzenie nowego slowa
+            
         } 
         
 
