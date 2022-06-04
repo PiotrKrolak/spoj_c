@@ -51,7 +51,7 @@ int zliczanie_liter(char ciag_znakow[]){
     return ile;
 }
 
-
+// klejenie nowego słowa za pomocą tablic? - przenoszenie adresu od którego ma być zapisana cyfra i samej cyfry(ilosc powtorzonych znakow) w tablicy trzywymiarowej(???)
 char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
     char nowe_slowo[200];
     char litera;
@@ -63,7 +63,8 @@ char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
         litera = slowo_kasi[i];
         
         if((i < dlugosc_slowa) && (i>=0)){
-            if((slowo_kasi[i] == slowo_kasi[i+1]){ // && ((slowo_kasi[i] != slowo_kasi[i-1]) && ((i-1) >= 0))){
+            //if((slowo_kasi[i] == slowo_kasi[i+1]) && ((slowo_kasi[i] != slowo_kasi[i-1]) && ((i-1) >= 0))){
+            if(slowo_kasi[i] == slowo_kasi[i+1]){
                 //ktory_znak = i;
                 liczba++;
                 if((slowo_kasi[i] != slowo_kasi[i-1]) && ((i-1) >= 0)){
@@ -71,8 +72,11 @@ char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
                 }
             }
             else{
-                if(liczba){
+                if((liczba) && (ktory_znak)){
+                    nowe_slowo[ktory_znak] = liczba;
                     
+                    liczba = 0;
+                    ktory_znak = 0;
                 }
 
             } 
