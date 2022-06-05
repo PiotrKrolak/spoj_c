@@ -18,7 +18,7 @@ char slowo[200];
 char wynik[50][200];
 
 int zliczanie_liter(char ciag_znakow[]);
-char nowe_slowo(int dlugosc_slowa, char slowo_kasi);
+char nowe_slowoo(int dlugosc_slowa, char slowo_kasi);
 
 int main(){
     scanf("%d",&C);
@@ -52,7 +52,7 @@ int zliczanie_liter(char ciag_znakow[]){
 }
 
 // klejenie nowego słowa za pomocą tablic? - przenoszenie adresu od którego ma być zapisana cyfra i samej cyfry(ilosc powtorzonych znakow) w tablicy trzywymiarowej(???)
-char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
+char nowe_slowoo(int dlugosc_slowa, char slowo_kasi[]){
     char nowe_slowo[200];
     char litera;
     int liczba = 0;
@@ -86,10 +86,17 @@ char nowe_slowo(int dlugosc_slowa, char slowo_kasi[]){
                    j++;
                }
                 }
-            //tworzenie nowego slowa
-            
         } 
-        
+    }
+    //tworzenie nowego slowa
+    for(int n=0; n<dlugosc_slowa;n++){
+        if(wspolrzedne[n][n] == n){
+            nowe_slowo[n] = wspolrzedne[n][n+1];
+            n = (n + wspolrzedne[n][n+1]);
+        }
+        else{
+            nowe_slowo[n] = slowo_kasi[n];
+        }
 
     }
 
