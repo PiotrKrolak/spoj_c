@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int n, k;
+int n, k, wynik;
 
 int suma(int a);
 
@@ -9,12 +9,13 @@ int main(){
     scanf("%d", &n);
 
     for (int i=0; i<n; i++){
-
-        printf("%d\n", suma(k));
+        wynik = suma(k);
+        printf("%d\n", wynik);
 
     }
-
-    return 0;
+    // wynik = suma(2);
+    // printf("%d\n", wynik);
+    // return 0;
 }
 
 int suma(int a){
